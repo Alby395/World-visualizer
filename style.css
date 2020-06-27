@@ -1,0 +1,180 @@
+body
+{
+    margin: 0;
+    min-width: 600px;
+    min-height: 500px;
+}
+
+#canvas
+{
+    width: 100%;
+    height: 100%;
+}
+
+hr
+{
+    border: 3px solid lightgrey;
+}
+
+/*LIGHT OPTIONS*/
+
+/*LIGHT TABLE*/
+
+.light-table
+{
+    margin-top: 15px;
+    width: 100%;
+    border: 1px solid lightgrey;
+}
+
+.light-table tr td
+{
+    padding: 10px 5px;
+    font-size: 12pt;
+    text-align: center;
+}
+
+.light-table tr th
+{
+    font-size: 13.5pt;
+}
+
+.light-table tr td:nth-child(2)
+{
+    width: 85%;
+}
+
+.light-table input[type=range]
+{
+    width: 100%;
+}
+
+.light-table input[type=color]
+{
+    width: 95%;
+    height: 30px;
+}
+
+/*LIGHT CHOICE BUTTON*/
+.light-button
+{
+    width: 49%;
+    height: 40px;
+    
+    background-color: rgba(255,255,255,0.3);
+}
+
+.light-menu
+{
+    height: 30%;
+    width: 100%;
+}
+
+.option-container
+{
+    margin-top: 10px;
+}
+
+#light-controller
+{
+    display: none;
+    z-index:2;
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    
+    width: 200px;
+    height: 100%;
+    padding: 15px;
+    background-color: rgba(227, 238, 255, 0.5); 
+    
+    overflow-y: scroll;
+    min-width: 300px;
+    padding-bottom: 0px;
+}
+
+#light-selection
+{
+    width: 95%;
+    margin-bottom: 10px;
+}
+
+#light-menu
+{
+    display: block;
+}
+
+#general-lights
+{
+    display: none;
+}
+
+
+/*SEARCH CONTAINER*/
+
+#search-container
+{
+    display: block;
+    z-index: 1;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 300px;
+    height: 140px;
+    border-radius: 5px;
+    background-color: rgba(227, 238, 255, 0.5);
+    padding: 10px;   
+}
+
+#city-select
+{
+    width: 100%;
+    height: 25px;
+    
+    font-size: 14pt;
+}
+
+#light-option-button
+{
+    width: 100%;
+    height: 25px;
+    font-size: 12pt;
+    margin-top: 8px;
+}
+
+#go-button
+{
+
+    width: 100%;
+    height: 30px;
+    font-size: 13pt;
+    margin-top: 10px;
+}
+
+#show-button
+{
+    display: inline-block;
+    width: 60%;
+    height: 30px;
+    font-size: 13pt;
+    margin-top: 10px;
+}
+
+#search-container label
+{
+    margin-left: 15px;
+    margin-right: 5px;
+    font-size: 16pt;
+}
+#search-container input[type="checkbox"]
+{
+    vertical-align: middle;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+}
+#infoCanvas
+{
+    display: none;
+}

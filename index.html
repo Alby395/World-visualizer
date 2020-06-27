@@ -1,0 +1,287 @@
+<html>
+    <head>
+        <title>Earth</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <canvas id = "canvas">
+            Canvas error
+        </canvas>
+        <canvas id = "infoCanvas"></canvas>
+        <!-- RIGHT DIV WITH LOCATION SEARCH BAR-->
+        <div id = "search-container">
+            <select id = "city-select">
+                <option value = -1>- Select a city -</option>
+            </select>
+            <button id = "go-button">Search</button>
+            <button id = "show-button">Show / Hide</button>
+            <label for="fixed-info">Fixed</label> <input type="checkbox" id = "fixed-info"/>
+            <button id = "light-option-button">SetLight</button>
+        </div>
+        
+        <!-- LEFT DIV WITH LIGHTS SETTINGS-->
+        <div id = "light-controller">
+            <!-- BUTTONS TO SWITCH TAB -->
+            <div class = "button-div">
+                <button class = "light-button" name = "light">Lights</button>
+                <button class = "light-button">General</button>
+            </div>
+            
+            <!-- LIGHTS OPTIONS -->
+            <div id = "light-menu" class = "option-container">
+                <div>
+                    <select id = "light-selection">
+                        <option>Light A</option>
+                        <option>Light B</option>
+                        <option>Light C</option>
+                    </select>                    
+                    <select id = "light-type">
+                        <option>None</option>
+                        <option>Directional</option>
+                        <option>Point</option>
+                        <option>Spotlight</option>
+                    </select> 
+                </div>
+
+                <div id = "light-settings-div">
+                    <table class = "light-table">
+                        <tr>
+                            <th colspan="2">
+                                Light color
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Color
+                            </td>
+                            <td>
+                                <input type = "color" id = "light-color"/>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <table class = "light-table">
+                        <tr>
+                            <th colspan="2">
+                                Toon <input type = "checkbox" id = "light-toon"/>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Threshold
+                            </td>
+                            <td>
+                                <input type = "range" id = "light-toon-threshold" min = 0 max = 100/>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class = "light-table" id = "rot-values-table">
+                        <tr>
+                            <th colspan="2">
+                                Rotation
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                θ
+                            </td>
+                            <td>
+                                <input type = "range" min = 0 max = 180 id = "theta-rot">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                φ
+                            </td>
+                            <td>
+                                <input type = "range" min = -180 max = 180 id = "phi-rot">
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <table id = "pos-values-table" class = "light-table">
+                        <tr>
+                            <th colspan="2">
+                                Position
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                X
+                            </td>
+                            <td>
+                                <input type = "range" min = -150 max = 150 id = "x-pos">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Y
+                            </td>
+                            <td>
+                                <input type = "range" min = -150 max = 150 id = "y-pos">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Z
+                            </td>
+                            <td>
+                                <input type = "range" min = -150 max = 150 id = "z-pos">
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <table id = "info-values-table" class = "light-table">
+                        <tr>
+                            <th colspan="2">
+                                Additional info
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Decay
+                            </td>
+                            <td>
+                                <input type = "range" min = 0 max = 2 id = "decay">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Target distance
+                            </td>
+                            <td>
+                                <input type = "range" min = 0 max = 100 id = "distance">
+                            </td>
+                        </tr>
+                        <tr id = "cone-out-row">
+                            <td>
+                                Cone out
+                            </td>
+                            <td>
+                                <input type = "range" min = 0 max = 150 id = "cone-out">
+                            </td>
+                        </tr>
+                        <tr id = "cone-in-row">
+                            <td>
+                                Cone in
+                            </td>
+                            <td>
+                                <input type = "range" min = 0 max = 95 id = "cone-in">
+                            </td>
+                        </tr>
+                    </table>
+                                       
+                    <table class = "light-table">
+                        <tr>
+                            <th colspan="2">
+                                Reflection
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Type
+                            </td>
+                            <td>
+                                <select id = "ref-type">
+                                    <option>None</option>
+                                    <option>Phong</option>
+                                    <option>Blinn</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr id = "ref-color-row">
+                            <td>
+                                Color
+                            </td>
+                            <td>
+                                <input type = "color" id = "ref-color"/>
+                            </td>
+                        </tr>
+                         <tr id = "ref-gamma-row">
+                            <td>
+                                Gamma
+                            </td>
+                            <td>
+                                <input type = "range" min = 1 max = 200 id = "gamma"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">
+                                Toon <input type = "checkbox" id = "ref-toon"/>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Threshold
+                            </td>
+                            <td>
+                                <input type = "range" id = "ref-toon-threshold" min = 0 max = 100/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- GENERAL LIGHTS SETTINGS -->
+            <div id = "general-lights" class = "option-container">
+                <!-- AMBIENT LIGHT -->
+                <table class = "light-table">
+                        <tr>
+                            <th colspan="2">
+                                Ambient light
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Type
+                            </td>
+                            <td>
+                                <select id = "amb-type">
+                                    <option>None</option>
+                                    <option>Ambient</option>
+                                    <option>Hemispheric</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr id = "amb-color-row">
+                            <td>
+                                Color
+                            </td>
+                            <td>
+                                <input type = "color" id = "amb-color" value = "#333333"/>
+                            </td>
+                        </tr>
+                        <tr id = "amb-bot-row">
+                            <td>
+                                Lower color
+                            </td>
+                            <td>
+                                <input type = "color" id = "amb-bot-color" value = "#8c8c8c"/>
+                            </td>
+                        </tr>
+                        <tr id = "theta-row">
+                            <td>
+                                θ
+                            </td>
+                            <td>
+                                <input type = "range" min = -90 max = 90 id = "amb-theta-rot">
+                            </td>
+                        </tr>
+                        <tr id = "phi-row">
+                            <td>
+                                φ
+                            </td>
+                            <td>
+                                <input type = "range" min = -180 max = 180 id = "amb-phi-rot">
+                            </td>
+                        </tr>
+                    </table>  
+            </div>
+        </div>
+        
+        <script src="lib/utils.js" type="application/javascript"></script>
+        <script src="cities.js" type="application/javascript"></script>
+        <script src="lib/quaternion.min.js" type="application/javascript"></script>
+        <script src="webglScript.js" type="application/javascript"></script>
+    </body>
+</html>
